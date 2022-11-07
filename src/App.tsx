@@ -1,11 +1,12 @@
 import React from 'react';
 
 import './App.css';
+import SingleCocktail from "./components/single-cocktail/SingleCocktail";
 
 function App() {
   return (
     <div className="App">
-      <h1>hello</h1>
+
     </div>
   );
 }
