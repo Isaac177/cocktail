@@ -1,3 +1,3 @@
 //declare module for cocktailSlice
 
-declare module '*';
+declare module "../src/features/cocktails/cocktailSlice";

@@ -1,6 +1,5 @@
 import {configureStore} from "@reduxjs/toolkit";
 
-// @ts-ignore
 import cocktailSlice from "./cocktails/cocktailSlice";
 
 const store = configureStore({
