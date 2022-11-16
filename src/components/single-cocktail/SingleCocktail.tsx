@@ -44,9 +44,12 @@ const SingleCocktail: FC<ISingleCocktailProps> = (props) => {
         /*container flex row bg slate*/
 
 
-
-
-        <div className="max-w-sm rounded overflow-hidden shadow-lg bg-pink-200">
+        <div
+            className="max-w-sm rounded overflow-hidden shadow-lg bg-pink-200 mt-10
+            hover:max-w-md hover:shadow-2xl hover:transition-all hover:duration-500
+            cursor-pointer"
+            key={idDrink}
+        >
             <img className="w-full"
                  src={strDrinkThumb}
                     alt={strDrink}

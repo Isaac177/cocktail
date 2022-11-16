@@ -27,7 +27,7 @@ const SearchBar = () => {
     }
     console.log(typeof result);
     return (
-        <div className="flex flex-col items-center justify-center py-2 mt-20">
+        <div className="flex flex-col items-center justify-center py-2 mt-20 mb-20">
             <h1 className="text-3xl font-bold">Search...</h1>
             <div className="flex flex-col items-center justify-center mt-10">
                 <Box>
