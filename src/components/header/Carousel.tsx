@@ -1,10 +1,7 @@
-import React, {FC, useEffect} from 'react';
-import HeroSlider, { Slide, Overlay, Nav } from 'hero-slider';
-
+import React, { useEffect} from 'react';
+import HeroSlider, { Slide, Overlay } from 'hero-slider';
 import {getCocktails} from "../../features/cocktails/coktails";
-import {useAppDispatch, useAppSelector} from "../../hooks/useTypedSelector";
-import Wrapper from "../wrapper";
-
+import {useAppDispatch} from "../../hooks/useTypedSelector";
 
 
 
@@ -14,9 +11,7 @@ const Carousel = () => {
         dispatch(getCocktails());
     }, [dispatch]);
 
-    console.log(useAppSelector(state => state.cocktails.data));
-
-    const {data} = useAppSelector(state => state.cocktails);
+    console.log(dispatch(getCocktails()));
 
     return (
         <HeroSlider
@@ -39,43 +34,38 @@ const Carousel = () => {
             }}
         >
             <Overlay>
-                {/*position Middle start*/}
-                <div className="flex flex-col items-center justify-center h-full bg-secondary">
-                    <h1 className="text-5xl font-bold text-white">Find Your Taste</h1>
-                    {/*Subtitle about cocktail*/}
-                    <p className="text-2xl text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, asperiores.</p>
-                    {/*Button with bg grandient dark-blue to dark-pink*/}
-                    <button className="bg-gradient-to-r from-blue-500 to-pink-500 text-white font-bold py-2 px-4 rounded-full">Find Your Taste</button>
+                <div className="flex flex-col items-center justify-center h-full backdrop-brightness-50">
+                    <h1 className="font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-purple-900 to-pink-600 m-10"> The Cocktail Store</h1>
+                    <p className="text-2xl text-white m-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, asperiores.</p>
+                    <button className="bg-gradient-to-r from-purple-900 to-pink-500 text-white font-bold py-2 px-4 rounded-2xl hover:bg-pink-100">Find Your Taste</button>
                 </div>
             </Overlay>
 
             <Slide
-                label="Giau Pass - Italy"
+                label="first img"
                 background={{
-                    backgroundImageSrc: "https://www.thecocktaildb.com/images/media/drink/808mxk1487602471.jpg"
+                    backgroundImageSrc: "https://www.thecocktaildb.com/images/media/drink/pwgtpa1504366376.jpg"
                 }}
             />
             <Slide
-                label="Bogliasco - Italy"
+                label="second img"
                 background={{
                     backgroundImageSrc: "https://www.thecocktaildb.com/images/media/drink/apneom1504370294.jpg"
                 }}
             />
             <Slide
-                label="County Clare - Ireland"
+                label="third img"
                 background={{
-                    backgroundImageSrc: "https://www.thecocktaildb.com/images/media/drink/xxsxqy1472668106.jpg"
+                    backgroundImageSrc: "https://www.thecocktaildb.com/images/media/drink/wwpyvr1461919316.jpg"
                 }}
             />
             <Slide
-                label="Crater Rock, OR - United States"
+                label="fourth img"
                 background={{
-                    backgroundImageSrc: "https://www.thecocktaildb.com/images/media/drink/upusyu1472667977.jpg"
+                    backgroundImageSrc: "https://www.thecocktaildb.com/images/media/drink/vr6kle1504886114.jpg"
                 }}
             />
-            <Nav />
         </HeroSlider>
-
     );
 };
 

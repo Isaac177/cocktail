@@ -6,7 +6,6 @@ const Navbar = () => {
     const [isMobile, setIsMobile] = React.useState(false);
 
     return (
-        //tailwind navbar gradient dark-blue to pink
         <nav
             className="flex justify-between flex-wrap bg-gradient-to-r from-blue-900 to-pink-900 sticky">
             <div className="max-w-7xl px-2 sm:px-6 lg:px-8">

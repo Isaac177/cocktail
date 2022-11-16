@@ -5,6 +5,8 @@ import SingleCocktail from "./components/single-cocktail/SingleCocktail";
 import {useAppDispatch, useAppSelector} from "./hooks/useTypedSelector";
 import Navbar from "./components/header/Navbar";
 import Carousel from "./components/header/Carousel";
+import SearchBar from "./components/search";
+import ShowCocktail from "./components/single-cocktail/ShowCocktail";
 
 const App: FC = () => {
 
@@ -12,6 +14,8 @@ const App: FC = () => {
       <div>
         <Navbar />
           <Carousel />
+          <SearchBar />
+          <ShowCocktail />
       </div>
   );
 }

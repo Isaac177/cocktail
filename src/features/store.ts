@@ -1,10 +1,12 @@
 import {configureStore} from "@reduxjs/toolkit";
 
 import cocktailSlice from "./cocktails/cocktailSlice";
+import searchSlice from "./search/searchSlice";
 
 const store = configureStore({
     reducer: {
-        cocktails: cocktailSlice
+        cocktails: cocktailSlice,
+        search: searchSlice
     }
 });
 
