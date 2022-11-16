@@ -7,6 +7,7 @@ import Navbar from "./components/header/Navbar";
 import Carousel from "./components/header/Carousel";
 import SearchBar from "./components/search";
 import ShowCocktail from "./components/single-cocktail/ShowCocktail";
+import Footer from "./components/footer/index";
 
 const App: FC = () => {
 
@@ -16,6 +17,7 @@ const App: FC = () => {
           <Carousel />
           <SearchBar />
           <ShowCocktail />
+          <Footer />
       </div>
   );
 }

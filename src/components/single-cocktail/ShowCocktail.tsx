@@ -13,7 +13,7 @@ const ShowCocktail: FC = () => {
     const {data, loading} = useAppSelector(state => state.cocktails);
 
     return (
-        <div className='flex flex-row flex-wrap items-center gap-2 justify-between min-h-screen py-4 px-4 bg-purple-200'>
+        <div className='flex flex-row flex-wrap items-center gap-2 justify-between min-h-screen py-4 px-4 bg-purple-200 pb-40'>
             {
                 loading ? <h1>Loading...</h1> : Object.values(data).map((item: any) => {
                     console.log(item.strDrink);
