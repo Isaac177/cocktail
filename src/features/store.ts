@@ -2,11 +2,13 @@ import {configureStore} from "@reduxjs/toolkit";
 
 import cocktailSlice from "./cocktails/cocktailSlice";
 import searchSlice from "./search/searchSlice";
+import popupSlice from "./popupSlice";
 
 const store = configureStore({
     reducer: {
         cocktails: cocktailSlice,
-        search: searchSlice
+        search: searchSlice,
+        popup: popupSlice
     }
 });
 

@@ -1,8 +1,10 @@
-import {FC, useState} from 'react';
+import React, {FC, useState} from 'react';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-
 import Cocktail from "../../models/cocktailModel";
+import {useAppDispatch, useAppSelector} from "../../hooks/useTypedSelector";
+import CocktailPage from "../coktail-page";
+import { setSelected} from "../../features/popupSlice";
 
 interface ISingleCocktailProps {
     cocktail: Cocktail;
@@ -10,44 +12,35 @@ interface ISingleCocktailProps {
 
 const SingleCocktail: FC<ISingleCocktailProps> = (props) => {
     const [isFavorite, setIsFavorite] = useState(false);
+    const [showPopup, setShowPopup] = useState(false);
+    const dispatch = useAppDispatch();
 
     const {
         cocktail: {
-            idDrink, strDrink, strDrinkThumb, strAlcoholic, strGlass, strInstructions
-        },
+            idDrink, strDrink, strDrinkThumb, strInstructions, strAlcoholic, strGlass
+        }
     } = props;
 
     const handleFavorite = () => {
         setIsFavorite(!isFavorite);
     }
 
+    const handleClick = () => {
+        const dataCock = {idDrink, strDrink, strDrinkThumb, strInstructions, strAlcoholic, strGlass};
+        dispatch(setSelected(dataCock));
+        setShowPopup(true);
+    }
 
+    const handleCancel = () => {
+        setShowPopup(false);
+    }
 
     return (
-        /*<div
-            className="cocktail"
-            key={idDrink}
-        >
-            <img
-                src={strDrinkThumb}
-                alt={strDrink}
-            />
-            <div className="cocktail-footer">
-                <h3>{strDrink}</h3>
-                <h4>{strAlcoholic}</h4>
-                <p>{strGlass}</p>
-                <p>{strInstructions}</p>
-            </div>
-        </div>*/
-
-
-        /*container flex row bg slate*/
-
-
         <div
             className="max-w-sm rounded overflow-hidden shadow-lg bg-pink-200 mt-10
             hover:max-w-md hover:shadow-2xl hover:transition-all hover:duration-500
             cursor-pointer"
+            onClick={handleClick}
             key={idDrink}
         >
             <img className="w-full"
@@ -70,6 +63,10 @@ const SingleCocktail: FC<ISingleCocktailProps> = (props) => {
                 <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
                 <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
             </div>
+            {showPopup && <CocktailPage
+                handleCancel={handleCancel}
+            />}
+
         </div>
     );
 }
